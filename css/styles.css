@@ -6,9 +6,8 @@
     --neu-grey200: hsl(0, 0%, 86%);
     --neu-grey500: hsl(0, 1%, 44%);
 
-    --lightbold: 400i;
     --bold: 700;
-    --heavybold: 800i;
+    --heavybold: 1000;
 }
 
 * {
@@ -23,8 +22,11 @@ body {
     width: 370px;
     height: auto;
     margin: 0 auto;
+    margin-top: 8rem;
     padding: 30px;
     background-color: white;
+    border-radius: 30px;
+    border-bottom-right-radius: 125px;
 }
 
 #top {
@@ -54,10 +56,38 @@ h3 {
     margin: 0;
 }
 
+#middle {
+    position: relative;
+    text-align: center;
+}
+
 hr {
-    color: var(--neu-grey100);
-    border-color: var(--neu-grey100);
+    color: transparent;
+    background-color: var(--neu-grey100);
     margin: 6rem 0;
+    height: 1px;
+}
+
+img {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--pri-purple);
+    padding: 1.5rem;
+    border-radius: 45px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#bottom {
+    font-size: 24pt;
+    font-style: italic;
+    font-weight: var(--heavybold);
+}
+
+h2 {
+    color: var(--pri-purple);
 }
 
 .attribution { font-size: 11px; text-align: center; }
