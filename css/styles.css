@@ -132,13 +132,9 @@ h1 {
         margin-bottom: 4rem;
     }
 
-    img {
-        left: 93.5%;
-    }
+    img { left: 93.5%; }
 
-    #bottom {
-        text-align: left;
-    }
+    #bottom { text-align: left; }
 
     h2 {
         font-size: 100pt;
