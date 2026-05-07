@@ -6,8 +6,6 @@
     --neu-grey200: hsl(0, 0%, 86%);
     --neu-grey500: hsl(0, 1%, 44%);
 
-    --input-font: 32px;
-
     --lightbold: 400i;
     --bold: 700;
     --heavybold: 800i;
@@ -15,6 +13,51 @@
 
 * {
     font-family: Poppins, sans-serif;
+}
+
+body {
+    background-color: var(--neu-grey100);
+}
+
+#window {
+    width: 370px;
+    height: auto;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+}
+
+#top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#top div p {
+    color: var(--neu-grey500);
+    font-weight: var(--bold);
+    letter-spacing: 3px;
+    font-size: 12pt;
+    margin: 7px 0;
+}
+
+h3 {
+    display: flex;
+    font-size: 18pt;
+    color: black;
+    border: 2px solid var(--neu-grey200);
+    border-radius: 12px;
+    width: 4.75rem;
+    padding: 0 1rem;
+    height: 3.95rem;
+    align-items: center;
+    margin: 0;
+}
+
+hr {
+    color: var(--neu-grey100);
+    border-color: var(--neu-grey100);
+    margin: 6rem 0;
 }
 
 .attribution { font-size: 11px; text-align: center; }
