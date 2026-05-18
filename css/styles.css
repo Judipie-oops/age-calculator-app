@@ -39,10 +39,11 @@ body { background-color: var(--neu-grey100); }
     margin: 7px 0;
 }
 
-h3 {
+input {
     display: flex;
     font-size: 18pt;
-    color: var(--neu-grey500);
+    font-weight: var(--bold);
+    color: var(black);
     border: 2px solid var(--neu-grey200);
     border-radius: 12px;
     width: 4.75rem;
@@ -51,6 +52,13 @@ h3 {
     align-items: center;
     margin: 0;
 }
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--pri-purple);
+}
+
+input::placeholder { color: var(--neu-grey500) }
 
 #middle {
     position: relative;
@@ -75,6 +83,12 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: 0.1s;
+}
+
+img:active {
+    background-color: black;
+    transition: 0.1s;
 }
 
 #bottom {
@@ -91,14 +105,14 @@ img {
 
 h2 {
     color: var(--pri-purple);
-    font-size: 60pt;
+    font-size: 58pt;
     margin: auto 0;
     letter-spacing: 10px;
 }
 
 h1 {
     color: black;
-    font-size: 48pt;
+    font-size: 44pt;
 }
 
 .attribution { font-size: 11px; text-align: center; }
@@ -137,12 +151,12 @@ h1 {
     #bottom { text-align: left; }
 
     h2 {
-        font-size: 100pt;
+        font-size: 60pt;
         margin: auto 0;
     }
 
     h1 {
-        font-size: 75pt;
+        font-size: 60pt;
         margin: 37.5px 0;
     }
 }
