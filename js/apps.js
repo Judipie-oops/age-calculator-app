@@ -2,14 +2,24 @@ let d = document.getElementById("dayInput");
 let m = document.getElementById("monthInput");
 let y = document.getElementById("yearInput");
 const button = document.getElementById("button");
+let textInput = document.getElementsByTagName("input");
 
-let input = new Date(y.value, m.value - 1, d.value);
 let calc = new Date();
 
+for (let input of textInput) {
+    input.addEventListener('input', () => {
+        if (d.value !== '' && d.value < 1) {
+            d.value = 1;
+        }
+
+    });
+}
+
 button.addEventListener('click', () => {
+    let dateInput = new Date(y.value, m.value - 1, d.value);
     // Debug stuff
     console.log("Today's date is: " + calc.toLocaleDateString());
-    console.log("The inputted date is: " + input.toLocaleDateString());
+    console.log("The inputted date is: " + dateInput.toLocaleDateString());
 
     let outputYear = calc.getFullYear() - y.value;
     let outputMonth = calc.getMonth() - m.value - 1;
@@ -17,7 +27,7 @@ button.addEventListener('click', () => {
 
     if (outputDay < 0) {
         outputMonth--;
-        const previousMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        const previousMonth = new Date(calc.getFullYear(), calc.getMonth(), 0);
         outputDay += previousMonth.getDate();
     }
 
