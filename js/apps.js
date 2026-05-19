@@ -8,9 +8,12 @@ let errorOutputDay = document.getElementById("dayError");
 let errorOutputMonth = document.getElementById("monthError");
 let errorOutputYear = document.getElementById("yearError");
 
-// Hide errors on page reload
+// Hide errors and remove inputs on page reload
 for (let error of errorOutput) {
     error.style.display = 'none';
+    day.value = '';
+    month.value = '';
+    year.value = '';
 }
 
 // Get current date
@@ -72,7 +75,7 @@ for (let input of textInput) {
 }
 
 button.addEventListener('click', () => {
-    if (day.value == '') {
+    if (day.value == '') { // Input checks to ensure there is data before running calculation
         errorOutputDay.style.display = 'block';
         errorOutputDay.textContent = 'Please input a day';
         day.style.borderColor = 'var(--pri-red)';
