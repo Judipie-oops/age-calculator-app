@@ -3,15 +3,21 @@ let m = document.getElementById("monthInput");
 let y = document.getElementById("yearInput");
 const button = document.getElementById("button");
 let textInput = document.getElementsByTagName("input");
+const errorOutput = document.getElementsByTagName("h3");
+let errorOutputDay = document.getElementById("dayError");
+let errorOutputMonth = document.getElementById("monthError");
+let errorOutputYear = document.getElementById("yearError");
+errorOutput.style.display = 'none';
 
 let calc = new Date();
 
 for (let input of textInput) {
     input.addEventListener('input', () => {
         if (d.value !== '' && d.value < 1) {
+            errorOutput.style.display = 'none';
             d.value = 1;
+            errorOutputDay.style.display = 'block';
         }
-
     });
 }
 
