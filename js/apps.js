@@ -101,7 +101,7 @@ button.addEventListener('click', () => {
         console.log("The inputted date is: " + dateInput.toLocaleDateString());
 
         let outputYear = calc.getFullYear() - yearNumber;
-        let outputMonth = calc.getMonth() - monthNumber - 1;
+        let outputMonth = calc.getMonth() - monthNumber + 1;
         let outputDay = calc.getDate() - dayNumber;
 
         // Handlers if calculation creates negative numbers
