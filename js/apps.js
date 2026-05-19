@@ -72,41 +72,56 @@ for (let input of textInput) {
 }
 
 button.addEventListener('click', () => {
-    // ensures numbers arent text
-    const yearNumber = Number(year.value);
-    const monthNumber = Number(month.value);
-    const dayNumber = Number(day.value);
+    if (day.value == '') {
+        errorOutputDay.style.display = 'block';
+        errorOutputDay.textContent = 'Please input a day';
+        day.style.borderColor = 'var(--pri-red)';
+    } else if (month.value == '') {
+        errorOutputMonth.style.display = 'block';
+        errorOutputMonth.textContent = 'Please input a month';
+        month.style.borderColor = 'var(--pri-red)';
+    } else if (year.value == '') {
+        errorOutputYear.style.display = 'block';
+        errorOutputYear.textContent = 'Please input a year'
+        year.style.borderColor = 'var(--pri-red)';
+    } else {
+        // ensures numbers arent text
+        const yearNumber = Number(year.value);
+        const monthNumber = Number(month.value);
+        const dayNumber = Number(day.value);
 
-    // Creates a date from the inputs
-    let dateInput = new Date(yearNumber, monthNumber - 1, dayNumber);
+        // Creates a date from the inputs
+        let dateInput = new Date(yearNumber, monthNumber - 1, dayNumber);
 
-    // Debug stuff
-    console.log("Today's date is: " + calc.toLocaleDateString());
-    console.log("The inputted date is: " + dateInput.toLocaleDateString());
+        // Debug stuff
+        console.log("Today's date is: " + calc.toLocaleDateString());
+        console.log("The inputted date is: " + dateInput.toLocaleDateString());
 
-    let outputYear = calc.getFullYear() - yearNumber;
-    let outputMonth = calc.getMonth() - monthNumber - 1;
-    let outputDay = calc.getDate() - dayNumber;
+        let outputYear = calc.getFullYear() - yearNumber;
+        let outputMonth = calc.getMonth() - monthNumber - 1;
+        let outputDay = calc.getDate() - dayNumber;
 
-    // Handlers if calculation creates negative numbers
-    if (outputDay < 0) {
-        outputMonth--;
-        const previousMonth = new Date(calc.getFullYear(), calc.getMonth(), 0);
-        outputDay += previousMonth.getDate();
+        // Handlers if calculation creates negative numbers
+        if (outputDay < 0) {
+            outputMonth--;
+            const previousMonth = new Date(calc.getFullYear(), calc.getMonth(), 0);
+            outputDay += previousMonth.getDate();
+        }
+
+        if (outputMonth < 0) {
+            outputYear--;
+            outputMonth += 12;
+        }
+
+        // Complete output
+        document.getElementById("yearOutput").innerHTML = outputYear;
+        document.getElementById("monthOutput").innerHTML = outputMonth;
+        document.getElementById("dayOutput").innerHTML = outputDay;
+
+        // Debug stuff
+        console.log(outputYear + " Years");
+        console.log(outputMonth + " Months");
+        console.log(outputDay + " Days");
     }
-
-    if (outputMonth < 0) {
-        outputYear--;
-        outputMonth += 12;
-    }
-
-    // Complete output
-    document.getElementById("yearOutput").innerHTML = outputYear;
-    document.getElementById("monthOutput").innerHTML = outputMonth;
-    document.getElementById("dayOutput").innerHTML = outputDay;
-
-    // Debug stuff
-    console.log(outputYear + " Years");
-    console.log(outputMonth + " Months");
-    console.log(outputDay + " Days");
 });
+
